@@ -1,0 +1,57 @@
+% This template was made by Emma van Emelen (Dragonsight91 on Github)
+% general format definition and document setup
+\documentclass[a4paper,11pt]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% extra stuff
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+% KOMA and Letter options
+\LoadLetterOption{DIN}
+
+% where to?
+\def\toName{Name}
+\def\toAddr{Street \& Nr}
+\def\toPostcode{12345}
+\def\toCity{City}
+\def\toCountry{Country}
+
+% from who?
+\def\fromName{Name}
+\def\fromAddr{Street \& Nr}
+\def\fromPostcode{12345}
+\def\fromCity{City}
+\def\fromCountry{Country}
+\def\sigImg{} % optional signature image. leave empty if not needed
+
+% set the stuff according to template
+\setkomavar{backaddress}{\fromName\\\fromAddr\\\fromPostcode{} \fromCity\\\fromCountry}
+\setkomavar{place}{\fromCity}
+
+% test if the image was set. if not, don't try to add image signature. can be ignored by the user
+\ifx\sigImg\empty{}
+    % signature without image
+    \setkomavar{signature}{\fromName}
+\else
+    % remove weird space before image signature
+    \makeatletter
+    \@setplength{sigbeforevskip}{1mm}
+    \makeatother
+    % set signature with image
+    \setkomavar{signature}{\includegraphics[width=3cm]{\sigImg}\\\fromName}
+\fi
+
+% the actual document
+\begin{document}
+    \begin{letter}{\toName\\\toAddr\\{\toPostcode} \toCity\\\toCountry}
+        \setkomavar{subject}{Subject Here}
+        \opening{Dear reader}
+        \blindtext{}
+
+        \closing{Greetings,}
+    \end{letter}
+    
+\end{document}
