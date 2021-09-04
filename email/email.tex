@@ -1,0 +1,52 @@
+% general format definition and document setup
+\documentclass[
+    a4paper,
+    11pt,
+    addrfield=off, % it's an email, so usually no address needed
+    foldmarks=off  % email don't need folding 
+]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+%extra stuff
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+%% options and formatting
+\LoadLetterOption{DIN}
+\makeatletter
+\@setplength{refvpos}{\useplength{firstheadvpos}}
+\makeatother
+
+% from who?
+\def\fromName{Name}
+\def\fromCity{City}
+
+\def\sigImg{} % optional signature image
+
+% set the KOMA stuff correctly
+\setkomavar{place}{\fromCity}
+
+% test if the image was set. if not, don't try to add image signature 
+% can be ignored, it's just for auto generation
+\ifx\sigImg\empty{}
+    \setkomavar{signature}{\fromName}
+\else
+    \makeatletter
+    \@setplength{sigbeforevskip}{1mm}
+    \makeatother
+    \setkomavar{signature}{\includegraphics[width=3cm]{\sigImg}\\\fromName}
+\fi
+
+
+\begin{document}
+
+    \begin{letter}{Empty}
+        \opening{Dear Sir or Madam,}
+        \blindtext
+        \closing{Kind regards,}
+    \end{letter}
+    
+\end{document}
