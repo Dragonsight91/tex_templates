@@ -1,4 +1,7 @@
 # LaTeX Email 
+## NOTE
+This may not work with all mail clients. So far, i know that Thunderbird does support this.
+
 ## Prerequisites
 
 - [`pdf2htmlEX`](https://github.com/pdf2htmlEX/pdf2htmlEX) to convert the PDF to HTML
