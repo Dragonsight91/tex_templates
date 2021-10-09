@@ -1,6 +1,6 @@
 # LaTeX Email 
 ## NOTE
-This may not work with all mail clients. So far, i know that Thunderbird does support this.
+This may not work with all mail clients. So far, i know that Thunderbird does support this, but Gmail does not
 
 ## Prerequisites
 
