@@ -1,0 +1,34 @@
+\documentclass[12pt,dlenvelope]{letter}
+\usepackage{geometry}
+
+% to change your envelope type and layout. refer to:
+% european standard sizes are ISO envelopes. 
+% usually your standard A4 envelope is a DL Envelope (like below)
+% https://mirrors.tuna.tsinghua.edu.cn/ctan/macros/latex2e/contrib/envlab/envlab.pdf
+\usepackage[dlenvelope,rightenvelopes,noprintbarcodes,printreturnaddress]{envlab}
+
+% usually i find this option less annoying to print DL envelopes:
+\geometry{paperheight=\EnvelopeWidth{},paperwidth=\EnvelopeHeight{}}
+% but for some larger envelopes, this may be necessary instead:
+%\geometry{paperheight=\EnvelopeHeight{},paperwidth=\EnvelopeWidth{}}
+
+
+% from who?
+\def\fromName{Name}
+\def\fromAddr{Street \& Nr}
+\def\fromPostcode{12345}
+\def\fromCity{City}
+\def\fromCountry{Country}
+
+% where to?
+\def\toName{Name}
+\def\toAddr{Street Nr.}
+\def\toPostcode{12643}
+\def\toCity{City}
+\def\toCountry{Country}
+
+\makelabels{}
+\begin{document}
+\startlabels
+\mlabel{\fromName\\\fromAddr\\\fromPostcode{} \fromCity{}\\\fromCountry}{\toName\\\toAddr\\\toPostcode{} \toCity{}\\\toCountry{}}
+\end{document}
